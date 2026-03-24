@@ -78,34 +78,44 @@ body {
     display: block; 
 }
 
+
 .product-display {
-    flex: 0.8;
+    flex: 1; /* Le damos el mismo espacio que al texto */
     position: relative;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
     pointer-events: none;
+    height: 100%; /* Ocupa todo el alto del hero */
 }
+
 
 .circle-bg {
     position: absolute;
-    width: 480px;
-    height: 480px;
+    width: 600px; /* Lo hice un poco más grande para el brownie más grande */
+    height: 600px;
     background: #EFEBE3;
     border-radius: 50%;
     z-index: 1;
-    right: 0;
+    /* TRUCO PARA CENTRADO PERFECTO: */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
+
 .hero-img {
-    width: 250px;
+    width: 380px; /* ¡Ahora es mucho más grande! */
     position: relative;
     z-index: 2;
     filter: drop-shadow(0 40px 60px rgba(0,0,0,0.12));
     animation: float 6s ease-in-out infinite;
     pointer-events: auto;
+    /* TRUCO PARA CENTRADO PERFECTO: */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-
 @keyframes float {
     0%, 100% { transform: translateY(0) rotate(0deg); }
     50% { transform: translateY(-20px) rotate(3deg); }
