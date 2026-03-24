@@ -23,7 +23,7 @@ body {
     display: flex; 
     justify-content: space-between; 
     align-items: center;
-    padding: 40px 8%; 
+    padding: 30px 8%; 
     position: absolute; 
     width: 100%; 
     z-index: 100; 
@@ -41,14 +41,13 @@ body {
 .nav-cta a { 
     text-decoration: none; 
     color: var(--text-main); 
-    font-size: 1rem; 
     border-bottom: 2px solid var(--accent-color); 
     padding-bottom: 4px; 
     font-weight: 600;
 }
 
 /* ==========================================================
-   3. HERO (PC) - CENTRADO CORREGIDO
+   3. HERO (PC)
 ========================================================== */
 .hero-minimal {
     min-height: 100vh;
@@ -56,147 +55,191 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 10%;
-    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.hero-text {
-    flex: 1;
-    z-index: 10;
-    max-width: 600px;
-}
+.hero-text { flex: 1.2; z-index: 10; }
+.hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; }
 
-.hero-text h1 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: clamp(3rem, 6vw, 5rem); 
-    line-height: 1.1; 
-    margin-bottom: 25px; 
-}
-
-.hero-text em { 
-    font-style: italic; 
-    color: var(--accent-color); 
-    display: block; 
-}
-
-/* Contenedor del Brownie corregido */
 .product-display {
-    flex: 1;
-    height: 100vh;
+    flex: 0.8;
+    display: grid;
+    place-items: center;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 600px;
 }
 
 .circle-bg {
-    position: absolute;
-    width: 550px; /* Tamaño del círculo en PC */
-    height: 550px;
+    grid-area: 1 / 1;
+    width: 480px;
+    height: 480px;
     background: #EFEBE3;
     border-radius: 50%;
-    z-index: 1;
 }
 
 .hero-img {
-    width: 350px; /* Tamaño del brownie en PC */
-    position: absolute; /* Para que flote justo al centro del círculo */
-    z-index: 2;
+    grid-area: 1 / 1;
+    width: 320px;
     filter: drop-shadow(0 40px 60px rgba(0,0,0,0.12));
     animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-25px) rotate(4deg); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
 /* ==========================================================
-   4. SECCIONES DE CONTENIDO
+   4. SECCIÓN FILOSOFÍA (CENTRADO TOTAL EN PC Y CEL)
 ========================================================== */
-.product-description-area, .product-viewer {
+.philosophy {
+    padding: 100px 5%;
+    background-color: #FDF5E6;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center;
+    text-align: center; /* Centra el texto */
+    width: 100%;
+}
+
+.philosophy .tag { 
+    display: block;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.philosophy h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    max-width: 900px;
+    margin: 0 auto 20px;
+    line-height: 1.2;
+}
+
+.philosophy p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================
+   5. SECCIÓN DESCRIPCIÓN E INGREDIENTES
+========================================================== */
+.product-description-area {
     padding: 100px 10%;
     background-color: #fff;
 }
 
 .desc-body {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 60px;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ==========================================================
+   6. VISOR DE FOTOS
+========================================================== */
+.product-viewer {
+    padding: 80px 10%;
+    text-align: center;
 }
 
 .main-window {
     width: 100%;
-    max-width: 600px;
-    height: 400px;
-    margin: 0 auto 40px;
-    background-color: var(--bg-color);
+    max-width: 700px;
+    height: 450px;
+    margin: 0 auto 30px;
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.main-window img { max-width: 90%; max-height: 90%; object-fit: contain; }
+.main-window img { max-width: 85%; max-height: 85%; object-fit: contain; }
 
-.thumbnail-carousel { display: flex; justify-content: center; gap: 15px; }
-.thumb { width: 80px; height: 80px; cursor: pointer; opacity: 0.6; transition: 0.3s; border-radius: 8px; }
-.thumb.active { opacity: 1; border: 2px solid var(--accent-color); }
+.thumbnail-carousel {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.thumb {
+    width: 80px; height: 80px;
+    cursor: pointer;
+    border-radius: 10px;
+    opacity: 0.5;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+.thumb.active { opacity: 1; border-color: var(--accent-color); }
 
 /* ==========================================================
-   5. RESPONSIVE (CELULAR) - SE QUEDA COMO TE GUSTÓ
+   7. FORMULARIO DE ORDEN
+========================================================== */
+.order-full-screen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    background-color: var(--bg-color);
+}
+
+.order-card {
+    background: #fff;
+    padding: 50px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.order-form-standalone {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.input-field { display: flex; flex-direction: column; gap: 5px; }
+.input-field input, .input-field select, .input-field textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.btn-confirm {
+    background: var(--accent-color);
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* ==========================================================
+   8. RESPONSIVE (CELULAR)
 ========================================================== */
 @media (max-width: 768px) {
-    .logo { font-size: 1.5rem; }
-    
-    /* SECCIÓN DE INICIO (HERO) */
-    .hero-minimal {
-        flex-direction: column-reverse;
-        text-align: center;
-        /* Reducimos los paddings para que no haya tanto espacio blanco */
-        padding: 80px 5% 20px 5%; 
-        height: auto; 
-        min-height: 80vh; /* Bajamos de 100vh a 80vh para que sea más corta */
-        gap: 10px; 
-    }
-
-    .hero-text h1 { 
-        font-size: 2.3rem; 
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .product-display {
-        height: 300px; /* Reducimos el alto del área del brownie */
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .circle-bg {
-        width: 260px;
-        height: 260px;
-    }
-
-    .hero-img { 
-        width: 160px; 
-    }
-
-    /* --- REGRESAMOS LAS SECCIONES DE ABAJO A SU ESTADO NORMAL --- */
-    
-    .product-description-area, 
-    .product-viewer, 
-    .philosophy {
-        padding: 80px 8%; /* Regresamos al espacio cómodo original */
-        height: auto;
-    }
-
-    .desc-body { 
-        grid-template-columns: 1fr; /* Sigue en una columna para cel */
-        gap: 40px; 
-    }
-
-    .main-window { 
-        height: 350px; /* Tamaño cómodo para ver el brownie abajo */
-    }
+    .hero-minimal { flex-direction: column-reverse; padding: 120px 5% 40px 5%; min-height: 80vh; gap: 10px; }
+    .hero-text h1 { font-size: 2.2rem; text-align: center; }
+    .product-display { height: 320px; }
+    .circle-bg { width: 280px; height: 280px; }
+    .hero-img { width: 170px; }
+    .desc-body { grid-template-columns: 1fr; gap: 40px; }
+    .philosophy { padding: 80px 8%; }
+    .order-card { padding: 30px 20px; }
 }
