@@ -336,6 +336,77 @@ body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); colo
     transition: 0.3s;
     margin-top: 10px;
 }
+/* --- AJUSTES PARA CELULARES (RESPONSIVE) --- */
+@media (max-width: 768px) {
+    
+    /* 1. Navegación: Logo más pequeño para que no estorbe */
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    .minimal-nav {
+        padding: 20px 5%;
+    }
+
+    /* 2. Hero: Ponemos el texto arriba y la imagen abajo */
+    .hero-minimal {
+        flex-direction: column;
+        height: auto;
+        padding: 120px 5% 60px 5%;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.8rem; /* Letra un poco más pequeña para que no se corte */
+    }
+
+    .hero-text p {
+        margin: 0 auto;
+    }
+
+    .product-display {
+        width: 100%;
+    }
+
+    .circle-bg {
+        width: 280px; /* Círculo más chico para el cel */
+        height: 280px;
+    }
+
+    /* 3. Descripción: De 2 columnas a 1 sola */
+    .desc-body {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .desc-header h2 {
+        font-size: 2rem;
+    }
+
+    /* 4. Visor de Brownies: Ajustamos el tamaño del cuadro central */
+    .main-window {
+        height: 280px;
+    }
+
+    .thumb {
+        width: 65px;
+        height: 65px;
+    }
+
+    /* 5. Página de Ordenar: Menos espacio a los lados */
+    .order-full-screen {
+        padding: 80px 15px 40px 15px;
+    }
+
+    .order-card {
+        padding: 30px 20px;
+    }
+
+    .order-header-main h2 {
+        font-size: 1.8rem;
+    }
+}
 
 .btn-confirm:hover {
     background-color: #2D1B0E;
