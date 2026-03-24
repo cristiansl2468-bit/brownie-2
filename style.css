@@ -1,4 +1,6 @@
-/* --- ESTILOS PREVIOS MANTENIDOS --- */
+/* ==========================================================
+   1. VARIABLES Y BASES
+========================================================== */
 :root {
     --bg-color: #F9F7F2;
     --accent-color: #4A3728;
@@ -7,463 +9,101 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; }
-
-/* (Navbar, Hero, Philosophy estilos aquí...) */
-.minimal-nav { display: flex; justify-content: space-between; padding: 40px 8%; position: absolute; width: 100%; z-index: 10; }
-.logo { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 4px; font-size: 1.3rem; }
-.nav-cta a { text-decoration: none; color: var(--text-main); font-size: 0.85rem; border-bottom: 1px solid var(--text-main); padding-bottom: 4px; }
-.hero-minimal { height: 100vh; display: flex; align-items: center; padding: 0 10%; gap: 5%; }
-.hero-text { flex: 1.2; }
-.hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 7vw, 5.5rem); line-height: 1; margin-bottom: 25px; }
-.hero-text em { font-style: italic; color: var(--accent-color); }
-.product-display { flex: 1; position: relative; display: flex; justify-content: center; align-items: center; }
-.circle-bg { position: absolute; width: 450px; height: 450px; background: #EFEBE3; border-radius: 50%; z-index: 1; }
-.hero-img { width: 110%; position: relative; z-index: 2; filter: drop-shadow(0 40px 60px rgba(0,0,0,0.12)); animation: float 6s ease-in-out infinite; }
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-.philosophy { padding: 160px 10%; text-align: center; background-color: #fff; }
-.philo-content h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin: 25px 0; }
-.tag { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 3px; color: #A68B77; }
-.minimal-footer { padding: 60px; text-align: center; font-size: 0.8rem; color: #999; }
-.fade-in { animation: fadeIn 1.2s ease-out forwards; }
-.fade-in-delay { animation: fadeIn 1.8s ease-out forwards; opacity: 0; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-
-/* --- NUEVOS ESTILOS: VISOR DE PRODUCTO --- */
-.product-viewer {
-    padding: 100px 10%;
-    background-color: #fff; /* Contraste con el fondo crema */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-}
-
-/* 1. Ventana Central (Tamaño Medio) */
-.main-window {
-    width: 100%;
-    max-width: 600px; /* Controla el tamaño medio */
-    height: 400px; /* Altura fija para el visor */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bg-color); /* Fondo crema suave dentro del visor */
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.03); /* Sombra muy sutil */
-}
-
-.main-window img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain; /* Asegura que el brownie no se deforme */
-    transition: opacity 0.3s ease; /* Transición suave al cambiar */
-}
-
-/* 2. Carrusel de Miniaturas */
-.thumbnail-carousel {
-    display: flex;
-    gap: 15px;
-    padding: 10px;
-    max-width: 800px;
-    overflow-x: auto; /* Scroll horizontal si hay muchas imágenes */
-    scrollbar-width: thin; /* Scrollbar sutil en Firefox */
-}
-
-/* Estilo de la barra de scroll (Chrome/Safari) */
-.thumbnail-carousel::-webkit-scrollbar { height: 4px; }
-.thumbnail-carousel::-webkit-scrollbar-thumb { background-color: #e0e0e0; border-radius: 4px; }
-
-.thumb {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    cursor: pointer;
-    border: 2px solid transparent; /* Espacio para el borde activo */
-    transition: all 0.3s ease;
-    opacity: 0.6; /* Semi-transparentes por defecto */
-}
-
-.thumb:hover {
-    opacity: 1;
-    transform: translateY(-3px);
-}
-
-/* Estilo para la miniatura activa */
-.thumb.active {
-    border-color: var(--accent-color);
-    opacity: 1;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-/* --- ESTILOS ÁREA DE DESCRIPCIÓN --- */
-.product-description-area {
-    padding: 120px 10%;
-    background-color: #fff; /* Fondo blanco para separar visualmente */
-    display: flex;
-    justify-content: center;
-}
-
-.description-content {
-    max-width: 1000px;
-    width: 100%;
-}
-
-.desc-header {
-    margin-bottom: 50px;
-    text-align: left;
-}
-
-.desc-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-top: 10px;
-    font-weight: 400;
-    color: var(--text-main);
-}
-
-.desc-body {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Texto largo a la izquierda, lista a la derecha */
-    gap: 60px;
-    align-items: start;
-}
-
-.text-main p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: var(--text-light);
-}
-
-.ingredients-list h3 {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    color: var(--accent-color);
-}
-
-.ingredients-list ul {
-    list-style: none;
-}
-
-.ingredients-list li {
-    margin-bottom: 15px;
-    font-size: 1rem;
-    color: var(--text-main);
-    padding-left: 20px;
-    position: relative;
-}
-
-/* Puntito decorativo al lado de la lista */
-.ingredients-list li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--accent-color);
-    font-weight: bold;
-}
-
-/* Responsivo para celulares */
-@media (max-width: 768px) {
-    .desc-body {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .desc-header h2 {
-        font-size: 2.2rem;
-    }
-}
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    letter-spacing: 4px;
-    /* Lo subimos de 1.3rem a 2.5rem para que sea un poco más pequeño que el H1 (3.5rem+) */
-    font-size: 2.5rem; 
-    color: var(--text-main);
-    transition: 0.3s;
-}
-
-/* Para que el botón de "Ordenar" no se vea gigante al lado del logo */
-.nav-cta a {
-    text-decoration: none;
-    color: var(--text-main);
-    font-size: 1rem; /* Un poco más legible */
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 4px;
-    letter-spacing: 1px;
-    font-weight: 600;
-}
-.order-section {
-    padding: 100px 10%;
-    background-color: var(--bg-color);
-}
-
-.order-container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.order-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    margin: 20px 0;
-}
-
-.order-form {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.input-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.order-form input, .order-form textarea {
-    padding: 15px;
-    border: 1px solid #EFEBE3;
-    border-radius: 8px;
-    background: #fff;
-    font-size: 1rem;
-    outline: none;
-}
-
-.order-form input:focus, .order-form textarea:focus {
-    border-color: var(--accent-color);
-}
-
-.btn-submit {
-    background-color: var(--accent-color);
-    color: white;
-    padding: 18px;
-    border: none;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 1rem;
-}
-
-.btn-submit:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-/* --- ESTILOS PÁGINA DE ORDEN (NUEVA) --- */
-.order-page-bg {
-    background-color: #FDF5E6; /* Fondo crema para toda la página */
-}
-
-.order-full-screen {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 100px 20px 50px 20px;
-}
-
-.order-card {
-    background: #fff;
-    padding: 50px;
-    border-radius: 20px;
-    max-width: 550px;
-    width: 100%;
-    box-shadow: 0 20px 50px rgba(74, 55, 40, 0.08); /* Sombra suave color café */
-}
-
-.order-header-main h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-    color: var(--accent-color);
-}
-
-.order-header-main p {
-    color: var(--text-light);
-    margin-bottom: 40px;
-}
-
-.order-form-standalone {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.input-field {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.input-field label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-main);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.input-field input, .input-field select, .input-field textarea {
-    padding: 14px;
-    border: 1px solid #EFEBE3;
-    border-radius: 10px;
-    background: #F9F7F2;
-    font-size: 1rem;
-    outline: none;
-    transition: 0.3s;
-}
-
-.input-field input:focus {
-    border-color: var(--accent-color);
-    background: #fff;
-}
-
-.btn-confirm {
-    background-color: var(--accent-color); /* El guinda de Kukulcao */
-    color: white;
-    padding: 18px;
-    border: none;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-top: 10px;
-}
-/* --- AJUSTES PARA CELULARES (RESPONSIVE) --- */
-@media (max-width: 768px) {
-    
-    /* 1. Navegación: Logo más pequeño para que no estorbe */
-    .logo {
-        font-size: 1.8rem;
-    }
-    
-    .minimal-nav {
-        padding: 20px 5%;
-    }
-
-    /* 2. Hero: Ponemos el texto arriba y la imagen abajo */
-    .hero-minimal {
-        flex-direction: column;
-        height: auto;
-        padding: 120px 5% 60px 5%;
-        text-align: center;
-        gap: 40px;
-    }
-
-    .hero-text h1 {
-        font-size: 2.8rem; /* Letra un poco más pequeña para que no se corte */
-    }
-
-    .hero-text p {
-        margin: 0 auto;
-    }
-
-    .product-display {
-        width: 100%;
-    }
-
-    .circle-bg {
-        width: 280px; /* Círculo más chico para el cel */
-        height: 280px;
-    }
-
-    /* 3. Descripción: De 2 columnas a 1 sola */
-    .desc-body {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .desc-header h2 {
-        font-size: 2rem;
-    }
-
-    /* 4. Visor de Brownies: Ajustamos el tamaño del cuadro central */
-    .main-window {
-        height: 280px;
-    }
-
-    .thumb {
-        width: 65px;
-        height: 65px;
-    }
-
-    /* 5. Página de Ordenar: Menos espacio a los lados */
-    .order-full-screen {
-        padding: 80px 15px 40px 15px;
-    }
-
-    .order-card {
-        padding: 30px 20px;
-    }
-
-    .order-header-main h2 {
-        font-size: 1.8rem;
-    }
-}
-
-.btn-confirm:hover {
-    background-color: #2D1B0E;
-    transform: translateY(-2px);
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--bg-color); 
+    color: var(--text-main); 
+    overflow-x: hidden; 
 }
 
 /* ==========================================================
-   --- ESTILOS GENERALES (PC por defecto) ---
-   He optimizado esto para que las "capas" no choquen.
+   2. NAVEGACIÓN
 ========================================================== */
+.minimal-nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 40px 8%; 
+    position: absolute; 
+    width: 100%; 
+    z-index: 100; 
+}
 
+.logo { 
+    font-family: 'Playfair Display', serif; 
+    font-weight: 700; 
+    letter-spacing: 4px; 
+    font-size: 2rem; 
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.nav-cta a { 
+    text-decoration: none; 
+    color: var(--text-main); 
+    font-size: 1rem; 
+    border-bottom: 2px solid var(--accent-color); 
+    padding-bottom: 4px; 
+    font-weight: 600;
+}
+
+/* ==========================================================
+   3. HERO (PC)
+========================================================== */
 .hero-minimal {
-    min-height: 100vh; /* Que ocupe toda la pantalla de alto */
+    min-height: 100vh;
     display: flex;
-    align-items: center; /* Centrado vertical */
-    justify-content: space-between; /* Texto a la izq, brownie a la der */
+    align-items: center;
+    justify-content: space-between;
     padding: 0 10%;
     position: relative;
-    overflow: hidden; /* Para que nada se salga */
 }
 
 .hero-text {
-    flex: 1.2; /* Un poquito más de espacio para el texto */
-    position: relative;
-    z-index: 10; /* Texto arriba de las formas de fondo */
-    max-width: 650px; /* Evita que las líneas se hagan eternas */
-    margin-right: -100px; /* Truco para que la imagen se "meta" un poco sin chocar */
+    flex: 1.2;
+    z-index: 10;
+    max-width: 650px;
+}
+
+.hero-text h1 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: clamp(3rem, 7vw, 5.5rem); 
+    line-height: 1.1; 
+    margin-bottom: 25px; 
+}
+
+.hero-text em { 
+    font-style: italic; 
+    color: var(--accent-color); 
+    display: block; 
 }
 
 .product-display {
-    flex: 0.8; /* Menos espacio para la imagen */
+    flex: 0.8;
     position: relative;
     display: flex;
-    justify-content: flex-end; /* Alinea el brownie a la derecha */
+    justify-content: flex-end;
     align-items: center;
-    pointer-events: none; /* TRUCO CLAVE: El círculo ya no bloquea los clics en el texto */
+    pointer-events: none;
 }
 
-/* El círculo de fondo */
 .circle-bg {
     position: absolute;
-    width: 480px; /* Tamaño del círculo en PC */
+    width: 480px;
     height: 480px;
-    background: #EFEBE3; /* Color crema suave */
+    background: #EFEBE3;
     border-radius: 50%;
-    z-index: 1; /* Fondo de la imagen */
+    z-index: 1;
     right: 0;
 }
 
-/* Tu imagen del Brownie */
 .hero-img {
-    width: 250px; /* Ajusta este tamaño al de tu foto de brownie real */
+    width: 250px;
     position: relative;
-    z-index: 2; /* Arriba del círculo */
+    z-index: 2;
     filter: drop-shadow(0 40px 60px rgba(0,0,0,0.12));
     animation: float 6s ease-in-out infinite;
-    pointer-events: auto; /* La imagen sí se puede tocar */
+    pointer-events: auto;
 }
 
 @keyframes float {
@@ -471,77 +111,85 @@ body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); colo
     50% { transform: translateY(-20px) rotate(3deg); }
 }
 
+/* ==========================================================
+   4. SECCIONES DE CONTENIDO (Descripción y Visor)
+========================================================== */
+.product-description-area, .product-viewer {
+    padding: 100px 10%;
+    background-color: #fff;
+}
+
+.desc-body {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+}
+
+.main-window {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin: 0 auto 40px;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.main-window img { max-width: 90%; max-height: 90%; object-fit: contain; }
+
+.thumbnail-carousel { display: flex; justify-content: center; gap: 15px; }
+.thumb { width: 80px; height: 80px; cursor: pointer; opacity: 0.6; transition: 0.3s; border-radius: 8px; }
+.thumb.active { opacity: 1; border: 2px solid var(--accent-color); }
 
 /* ==========================================================
-   --- AJUSTES PARA CELULARES (RESPONSIVE) ---
-   Aquí solucionamos tus dos problemas estéticos:
-   1. Jerarquía de texto/imagen.
-   2. Amontonamiento.
+   5. PÁGINA DE ORDEN (Card)
 ========================================================== */
+.order-card {
+    background: #fff;
+    padding: 50px;
+    border-radius: 20px;
+    max-width: 550px;
+    width: 100%;
+    box-shadow: 0 20px 50px rgba(74, 55, 40, 0.08);
+}
 
+/* ==========================================================
+   6. RESPONSIVE (CELULAR) - AQUÍ ESTÁ LA MAGIA
+========================================================== */
 @media (max-width: 768px) {
+    .logo { font-size: 1.5rem; }
     
-    /* Problema 2: El espacio amontonado. 
-       Cambiamos Flex de fila (PC) a columna (Cel) y lo centramos todo. */
     .hero-minimal {
-        flex-direction: column-reverse; /* ¡TRUCO! Imagen primero, texto después */
-        height: auto; /* Se adapta al contenido */
-        padding: 120px 5% 60px 5%; /* Más espacio arriba para el logo */
-        justify-content: center;
-        text-align: center; /* Centramos el texto en el cel */
-        gap: 60px; /* Espacio entre imagen y texto */
+        flex-direction: column-reverse; /* Imagen ARRIBA, texto ABAJO */
+        text-align: center;
+        padding: 140px 5% 60px 5%;
+        height: auto;
+        gap: 50px;
     }
 
-    /* Solución Problema 1: El texto que se corta. 
-       Ahora el texto rodea la forma de la imagen. */
-    .hero-text {
-        flex: 1;
-        position: relative;
-        z-index: 10;
-        max-width: 100%;
-        margin-right: 0; /* Quitamos el truco de PC */
-        text-align: center; /* Centrado */
-    }
+    .hero-text { margin-right: 0; }
+    .hero-text h1 { font-size: 2.5rem; }
 
-    /* Solución Problema 1 (Continuación): 
-       Hacemos que el texto se "meta" un poco más arriba, pero usando forma. */
-    .hero-text h1 {
-        margin-top: 0;
-        margin-bottom: 20px;
-        /* TRUCO ESTÉTICO: Baja un poquito el tamaño de letra en cel 
-           para que no se corten las palabras. */
-        font-size: 2.5rem; 
-    }
-
-    .hero-text p {
-        margin: 0 auto;
-        font-size: 1rem;
-        color: var(--text-light);
-    }
-
-    /* Solución para la Imagen en Celular */
     .product-display {
-        flex: 1;
         width: 100%;
-        justify-content: center; /* Centramos la imagen en el cel */
-        align-items: center;
-        /* TRUCO ESTÉTICO: Baja un poco la imagen para 
-           que no se tape el logo. */
-        margin-top: -30px; 
+        justify-content: center;
     }
 
-    /* El círculo más chico en cel */
     .circle-bg {
-        width: 320px; 
-        height: 320px;
+        width: 300px;
+        height: 300px;
         right: auto;
         left: 50%;
-        transform: translateX(-50%); /* Centrado absoluto */
+        transform: translateX(-50%);
     }
 
-    /* El brownie real más grande en cel 
-       (para que el círculo no se vea tan vacío) */
-    .hero-img {
-        width: 180px; 
-    }
+    .hero-img { width: 180px; }
+
+    .desc-body { grid-template-columns: 1fr; }
+    
+    .main-window { height: 280px; }
 }
+
+
