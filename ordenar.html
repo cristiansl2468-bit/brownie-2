@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Pedido | Kukulcao</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="order-page-bg">
+
+    <nav class="minimal-nav">
+        <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">KUKULCAO</a></div>
+        <div class="nav-cta">
+            <a href="index.html">← Volver</a>
+        </div>
+    </nav>
+
+    <main class="order-full-screen">
+        <div class="order-card">
+            <div class="order-header-main">
+                <h2>Casi listo...</h2>
+                <p>Completa tus datos para agendar tu entrega de brownies frescos.</p>
+            </div>
+
+            <form class="order-form-standalone" id="orderForm">
+                
+                <div class="input-field">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
+                </div>
+                
+                <div class="input-field">
+                    <label>Correo Electrónico</label>
+                    <input type="email" placeholder="tu@correo.com" required>
+                </div>
+
+                <div class="input-field">
+                    <label>¿Cuántos brownies deseas?</label>
+                    <select id="cantidad" required>
+                        <option value="1 Brownie">1 Brownie Individual</option>
+                        <option value="Caja de 6">Caja de 6 (Ideal para compartir)</option>
+                        <option value="Caja de 12">Caja de 12 (Fiesta saludable)</option>
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <label>Dirección de entrega (Cadereyta / Querétaro)</label>
+                    <textarea id="direccion" placeholder="Calle, número y colonia..." rows="3" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-confirm">Confirmar Pedido</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

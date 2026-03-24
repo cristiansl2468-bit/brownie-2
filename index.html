@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kukulcao | Pureza en cada bocado</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="minimal-nav">
+        <div class="logo">KUKULCAO</div>
+        <div class="nav-cta">
+            <a href="ordenar.html">Ordenar</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-minimal">
+
+            <div class="hero-text">
+                <h1 class="fade-in">UNA TENTACIÓN <br><em>SIN REMORDIMIENTO.</em></h1>
+                <p class="fade-in-delay">Avena integral, cacao orgánico y la dulzura justa de la miel.</p>
+            </div>
+            <div class="product-display">
+                <div class="circle-bg"></div>
+                <img src="brownie-1.png" alt="Kukulcao Brownie Hero" class="hero-img">
+            </div>
+        </section>
+        <section class="product-description-area">
+    <div class="description-content">
+        <div class="desc-header">
+            <span class="tag">Conoce Kukulcao</span>
+            <h2>Un equilibrio entre nutrición y sabor.</h2>
+        </div>
+        
+        <div class="desc-body">
+            <div class="text-main">
+                <p>Kukulcao es más que un postre; es una alternativa consciente para quienes aman el dulce pero cuidan su salud. Hemos seleccionado cuidadosamente cada ingrediente para crear un brownie de textura densa y sabor intenso, eliminando los excesos de azúcar procesada.</p>
+            </div>
+            
+            <div class="ingredients-list">
+                <h3>Base Natural:</h3>
+                <ul>
+                    <li><strong>Avena Integral:</strong> Aporta fibra y energía duradera.</li>
+                    <li><strong>Cacao Puro:</strong> Antioxidantes y sabor real.</li>
+                    <li><strong>Aceite de Coco:</strong> Grasas saludables y suavidad.</li>
+                    <li><strong>Miel y Splenda:</strong> El dulzor perfecto sin picos de glucosa.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section class="philosophy">
+            <div class="philo-content">
+                <span class="tag">0% Azúcares Refinados</span>
+                <h2>Tu cuerpo merece ingredientes honestos.</h2>
+                <p>Kukulcao nace de la necesidad de un postre que no comprometa tu salud.</p>
+            </div>
+        </section>
+
+        <section class="product-viewer">
+            <div class="main-window">
+                <img src="brownie-1.png" id="active-image" alt="Visor de Brownie">
+            </div>
+
+            <div class="thumbnail-carousel">
+                <img src="brownie-1.png" class="thumb active" onclick="changeImage(this.src, this)" alt="Vista 1">
+                <img src="brownie-2.png" class="thumb" onclick="changeImage(this.src, this)" alt="Vista 2">
+                <img src="brownie-3.png" class="thumb" onclick="changeImage(this.src, this)" alt="Vista 3">
+                <img src="brownie-4.png" class="thumb" onclick="changeImage(this.src, this)" alt="Vista 4">
+                </div>
+        </section>
+    </main>
+
+
+    <footer class="minimal-footer">
+        <p>Hecho con amor en Cadereyta, México.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
