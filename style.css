@@ -148,35 +148,55 @@ body {
 @media (max-width: 768px) {
     .logo { font-size: 1.5rem; }
     
+    /* SECCIÓN DE INICIO (HERO) */
     .hero-minimal {
         flex-direction: column-reverse;
         text-align: center;
-        padding: 120px 5% 40px 5%; 
+        /* Reducimos los paddings para que no haya tanto espacio blanco */
+        padding: 80px 5% 20px 5%; 
         height: auto; 
-        min-height: 100vh; 
-        gap: 20px; 
+        min-height: 80vh; /* Bajamos de 100vh a 80vh para que sea más corta */
+        gap: 10px; 
     }
 
-    .hero-text h1 { font-size: 2.5rem; }
+    .hero-text h1 { 
+        font-size: 2.3rem; 
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 
     .product-display {
-        height: 400px; /* Reducimos el alto en cel para quitar el blanco */
+        height: 300px; /* Reducimos el alto del área del brownie */
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .circle-bg {
-        width: 300px;
-        height: 300px;
+        width: 260px;
+        height: 260px;
     }
 
     .hero-img { 
-        width: 180px; 
-        position: relative; /* En cel lo volvemos relativo para que no flote mal */
+        width: 160px; 
     }
+
+    /* --- REGRESAMOS LAS SECCIONES DE ABAJO A SU ESTADO NORMAL --- */
     
-    .desc-body { grid-template-columns: 1fr; }
-}
-    .main-window { height: 280px; }
-}
+    .product-description-area, 
+    .product-viewer, 
+    .philosophy {
+        padding: 80px 8%; /* Regresamos al espacio cómodo original */
+        height: auto;
+    }
 
+    .desc-body { 
+        grid-template-columns: 1fr; /* Sigue en una columna para cel */
+        gap: 40px; 
+    }
 
+    .main-window { 
+        height: 350px; /* Tamaño cómodo para ver el brownie abajo */
+    }
+}
