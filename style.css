@@ -51,26 +51,41 @@ body {
    3. HERO (PC) - CON ANILLOS DECORATIVOS
 ========================================================== */
 .hero-minimal {
-    min-height: 100vh;
+    min-height: 100vh; /* Que ocupe toda la pantalla de alto */
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10%;
-    max-width: 1400px;
-    margin: 0 auto;
-    gap: 40px;
+    align-items: center; /* Centrado vertical */
+    justify-content: space-between; /* Texto a la izq, brownie a la der */
+    padding: 0 10%; /* Espacio a los lados en PC */
+    position: relative;
+    overflow: hidden; /* Evita que los aros se salgan de la pantalla */
 }
 
-.hero-text { flex: 1.2; z-index: 10; }
-.hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; }
+/* Solución al choque: Damos más espacio al texto */
+.hero-text {
+    flex: 1.3; /* Aumentamos el espacio para el texto */
+    position: relative;
+    z-index: 10; /* Texto siempre arriba de los aros de fondo */
+    max-width: 680px; /* Evita que las líneas se hagan eternas */
+    margin-right: 0; /* Aseguramos que no haya margen extra que choque */
+}
 
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 4.5rem); /* Tamaño de letra que se adapta */
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+/* Ajustamos la imagen para que no tape */
 .product-display {
-    flex: 0.8;
+    flex: 0.7; /* Reducimos un poco el espacio para la imagen */
     display: grid;
     place-items: center;
     position: relative;
-    height: 600px; /* Alto en PC */
+    height: 600px;
 }
+
+/* El Círculo de fondo sólido */
 .circle-bg {
     grid-area: 1 / 1;
     width: 380px;
@@ -80,27 +95,14 @@ body {
     z-index: 1;
 }
 
-/* --- LA NUEVA IMAGEN DEL ARO (Imagen 6) --- */
-.decorative-ring-img {
-    grid-area: 1 / 1;
-    width: 650px; /* Tamaño del aro en PC */
-    height: auto;
-    position: absolute;
-    z-index: 0; /* Por detrás del fondo sólido y la imagen */
-    opacity: 0.8; /* Lo hacemos sutil y tenue */
-    pointer-events: none; /* No interfiere con el texto */
-    
-    /* TRUCO: Gira la imagen 90 grados para que los 
-       corchetes queden arriba y abajo del brownie cuadrado */
-    transform: rotate(90deg);
-}
-
+/* Tu imagen del Brownie real (sin fondo blanco) */
 .hero-img {
     grid-area: 1 / 1;
-    width: 320px; /* Tamaño del brownie en PC */
+    width: 280px; /* Ajusta este tamaño al de tu foto de brownie */
+    position: relative;
+    z-index: 2; /* Arriba del círculo */
     filter: drop-shadow(0 40px 60px rgba(0,0,0,0.12));
     animation: float 6s ease-in-out infinite;
-    z-index: 2; /* Por delante de todo */
 }
 
 @keyframes float {
