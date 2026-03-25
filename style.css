@@ -1,11 +1,12 @@
 /* ==========================================================
-   1. VARIABLES Y BASES
+   1. VARIABLES Y BASES (Actualizado con tu Burgundy)
 ========================================================== */
 :root {
     --bg-color: #F9F7F2;
-    --accent-color: #4A3728;
+    --accent-color: #8b0a1a; /* Tu Burgundy oficial */
     --text-main: #2C2C2C;
     --text-light: #6B6B6B;
+    --gold-brown: #8B5E3C; /* Café artesanal para botones/iconos */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -47,7 +48,7 @@ body {
 }
 
 /* ==========================================================
-   3. HERO (PC)
+   3. HERO (PC) - CON ANILLOS DECORATIVOS
 ========================================================== */
 .hero-minimal {
     min-height: 100vh;
@@ -57,10 +58,11 @@ body {
     padding: 0 10%;
     max-width: 1400px;
     margin: 0 auto;
+    gap: 40px;
 }
 
 .hero-text { flex: 1.2; z-index: 10; }
-.hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; }
+.hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; }
 
 .product-display {
     flex: 0.8;
@@ -70,19 +72,35 @@ body {
     height: 600px;
 }
 
+/* Anillos estilo artesanal */
+.decorative-rings {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    z-index: 0;
+}
+
+.ring { position: absolute; border: 1px solid rgba(139, 94, 60, 0.15); border-radius: 50%; }
+.ring-1 { width: 450px; height: 450px; border-style: dashed; }
+.ring-2 { width: 580px; height: 580px; }
+
 .circle-bg {
     grid-area: 1 / 1;
-    width: 480px;
-    height: 480px;
+    width: 380px;
+    height: 380px;
     background: #EFEBE3;
     border-radius: 50%;
+    z-index: 1;
 }
 
 .hero-img {
     grid-area: 1 / 1;
-    width: 320px;
+    width: 280px;
     filter: drop-shadow(0 40px 60px rgba(0,0,0,0.12));
     animation: float 6s ease-in-out infinite;
+    z-index: 2;
 }
 
 @keyframes float {
@@ -91,155 +109,72 @@ body {
 }
 
 /* ==========================================================
-   4. SECCIÓN FILOSOFÍA (CENTRADO TOTAL EN PC Y CEL)
+   4. ICONOS DE BENEFICIOS Y BOTÓN
+========================================================== */
+.hero-benefits { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; 
+    margin-top: 30px; 
+}
+.benefit-item { text-align: center; }
+.benefit-item .icon { font-size: 1.8rem; display: block; margin-bottom: 5px; }
+.benefit-item h4 { font-size: 0.8rem; text-transform: uppercase; color: var(--gold-brown); letter-spacing: 1px; }
+.benefit-item p { font-size: 0.75rem; color: var(--text-light); }
+
+.btn-pedir-ahora { 
+    display: inline-block; 
+    margin-top: 40px; 
+    padding: 18px 50px; 
+    background: var(--gold-brown); 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 50px; 
+    font-weight: 700; 
+    letter-spacing: 1px;
+    box-shadow: 0 10px 20px rgba(139, 94, 60, 0.2);
+    transition: 0.3s;
+}
+.btn-pedir-ahora:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+/* ==========================================================
+   5. FILOSOFÍA, DESCRIPCIÓN Y VISOR (TUS ESTILOS ORIGINALES)
 ========================================================== */
 .philosophy {
     padding: 100px 5%;
     background-color: #FDF5E6;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra horizontalmente */
-    justify-content: center;
-    text-align: center; /* Centra el texto */
-    width: 100%;
-}
-
-.philosophy .tag { 
-    display: block;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-    color: var(--text-light);
-    font-size: 0.9rem;
-    width: 100%;
-}
-
-.philosophy h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    max-width: 900px;
-    margin: 0 auto 20px;
-    line-height: 1.2;
-}
-
-.philosophy p {
-    max-width: 650px;
-    margin: 0 auto;
-    color: var(--text-light);
-    line-height: 1.7;
-    font-size: 1.1rem;
-}
-
-/* ==========================================================
-   5. SECCIÓN DESCRIPCIÓN E INGREDIENTES
-========================================================== */
-.product-description-area {
-    padding: 100px 10%;
-    background-color: #fff;
-}
-
-.desc-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-/* ==========================================================
-   6. VISOR DE FOTOS
-========================================================== */
-.product-viewer {
-    padding: 80px 10%;
-    text-align: center;
-}
-
-.main-window {
-    width: 100%;
-    max-width: 700px;
-    height: 450px;
-    margin: 0 auto 30px;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    justify-content: center;
+    text-align: center;
+    width: 100%;
 }
 
+.philosophy h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.8rem); max-width: 900px; margin: 0 auto 20px; line-height: 1.2; }
+
+.product-description-area { padding: 100px 10%; background-color: #fff; }
+.desc-body { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1100px; margin: 0 auto; }
+
+.product-viewer { padding: 80px 10%; text-align: center; }
+.main-window { width: 100%; max-width: 700px; height: 450px; margin: 0 auto 30px; background-color: #fff; display: flex; justify-content: center; align-items: center; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 .main-window img { max-width: 85%; max-height: 85%; object-fit: contain; }
 
-.thumbnail-carousel {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.thumb {
-    width: 80px; height: 80px;
-    cursor: pointer;
-    border-radius: 10px;
-    opacity: 0.5;
-    transition: 0.3s;
-    border: 2px solid transparent;
-}
-
+.thumbnail-carousel { display: flex; justify-content: center; gap: 15px; }
+.thumb { width: 80px; height: 80px; cursor: pointer; border-radius: 10px; opacity: 0.5; transition: 0.3s; border: 2px solid transparent; }
 .thumb.active { opacity: 1; border-color: var(--accent-color); }
 
 /* ==========================================================
-   7. FORMULARIO DE ORDEN
-========================================================== */
-.order-full-screen {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 100px 20px;
-    background-color: var(--bg-color);
-}
-
-.order-card {
-    background: #fff;
-    padding: 50px;
-    border-radius: 20px;
-    max-width: 600px;
-    width: 100%;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-}
-
-.order-form-standalone {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 25px;
-}
-
-.input-field { display: flex; flex-direction: column; gap: 5px; }
-.input-field input, .input-field select, .input-field textarea {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-.btn-confirm {
-    background: var(--accent-color);
-    color: white;
-    padding: 18px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-/* ==========================================================
-   8. RESPONSIVE (CELULAR)
+   6. RESPONSIVE (CELULAR ACTUALIZADO)
 ========================================================== */
 @media (max-width: 768px) {
-    .hero-minimal { flex-direction: column-reverse; padding: 120px 5% 40px 5%; min-height: 80vh; gap: 10px; }
+    .hero-minimal { flex-direction: column-reverse; padding: 120px 5% 40px 5%; min-height: auto; gap: 40px; }
     .hero-text h1 { font-size: 2.2rem; text-align: center; }
-    .product-display { height: 320px; }
+    .hero-benefits { grid-template-columns: 1fr; gap: 25px; }
+    .product-display { height: 350px; }
+    .ring-2 { display: none; } /* Simplificamos para cel */
     .circle-bg { width: 280px; height: 280px; }
     .hero-img { width: 170px; }
     .desc-body { grid-template-columns: 1fr; gap: 40px; }
     .philosophy { padding: 80px 8%; }
-    .order-card { padding: 30px 20px; }
 }
