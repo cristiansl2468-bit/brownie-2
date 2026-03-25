@@ -178,3 +178,202 @@ body {
     .desc-body { grid-template-columns: 1fr; gap: 40px; }
     .philosophy { padding: 80px 8%; }
 }
+/* ==========================================================
+   --- ESTILOS DEL HERO ACTUALIZADOS CON AROS Y BENEFICIOS ---
+========================================================== */
+
+.hero-minimal {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+/* --- Los Aros Decorativos (PC) --- */
+.product-display {
+    flex: 0.8;
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: 600px;
+}
+
+.decorative-rings {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    z-index: 0;
+}
+
+.ring {
+    position: absolute;
+    border-radius: 50%;
+    border-color: rgba(139, 94, 60, 0.2); /* Color café artesanal suave */
+}
+
+/* Aro Principal con Textura de Hojas (Usaremos un pseudo-elemento para la textura) */
+.ring-main {
+    width: 450px;
+    height: 450px;
+    border: 2px solid;
+    position: relative;
+}
+
+/* Aquí simularíamos la textura orgánica. Lo ideal sería una imagen PNG, 
+   pero usaremos un truco de CSS para simular puntos orgánicos. */
+.ring-texture {
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border-radius: 50%;
+    background-image: radial-gradient(rgba(139, 94, 60, 0.1) 1px, transparent 1px);
+    background-size: 15px 15px;
+    mask-image: radial-gradient(circle, transparent 50%, black 51%);
+}
+
+/* Los aros con líneas cortadas (dashed) */
+.ring-dashed-1 {
+    width: 530px;
+    height: 530px;
+    border: 1px dashed;
+}
+
+.ring-dashed-2 {
+    width: 620px;
+    height: 620px;
+    border: 1px dashed;
+}
+
+.circle-bg {
+    grid-area: 1 / 1;
+    width: 380px;
+    height: 380px;
+    background: #EFEBE3;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.hero-img {
+    grid-area: 1 / 1;
+    width: 280px;
+    filter: drop-shadow(0 40px 60px rgba(0,0,0,0.12));
+    animation: float 6s ease-in-out infinite;
+    z-index: 2;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50= transform: translateY(-20px); }
+}
+
+/* --- Texto, Beneficios y Botón --- */
+.hero-text { flex: 1.2; z-index: 10; }
+.hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; }
+.hero-text p { font-size: 1.1rem; color: var(--text-light); line-height: 1.7; max-width: 600px; }
+
+/* Beneficios en HORIZONTAL (Tal como en tu referencia) */
+.hero-benefits { 
+    display: flex; /* Cambiamos a Flex para horizontal */
+    justify-content: space-between;
+    gap: 20px; 
+    margin-top: 40px; 
+    max-width: 600px;
+}
+.benefit-item { text-align: center; flex: 1; }
+.benefit-icon { width: 50px; height: 50px; object-fit: contain; margin-bottom: 10px; } /* Si usas imágenes */
+.benefit-item .icon { font-size: 2rem; display: block; margin-bottom: 10px; } /* Si usas emojis */
+.benefit-item h4 { font-size: 0.9rem; text-transform: uppercase; color: var(--gold-brown); letter-spacing: 1px; font-weight: 700; }
+.benefit-item p { font-size: 0.8rem; color: var(--text-light); line-height: 1.4; }
+
+/* Botón "PEDIR AHORA" Marrón */
+.btn-pedir-ahora { 
+    display: inline-block; 
+    margin-top: 50px; 
+    padding: 18px 60px; 
+    background: var(--gold-brown); 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 50px; 
+    font-weight: 700; 
+    letter-spacing: 2px;
+    box-shadow: 0 10px 20px rgba(139, 94, 60, 0.2);
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+.btn-pedir-ahora:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+/* --- FRANJA RECUPERADA: 0% AZÚCARES (Tus estilos originales) --- */
+.philosophy {
+    padding: 100px 5%;
+    background-color: #FDF5E6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+.philosophy .tag { display: block; margin-bottom: 15px; letter-spacing: 2px; color: var(--text-light); font-size: 0.9rem; }
+.philosophy h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.8rem); max-width: 900px; margin: 0 auto 20px; line-height: 1.2; }
+.philosophy p { max-width: 650px; margin: 0 auto; color: var(--text-light); line-height: 1.7; font-size: 1.1rem; }
+
+/* ==========================================================
+   --- RESPONSIVE: AJUSTE CRÍTICO PARA MÓVIL (NUEVO ORDEN) ---
+========================================================== */
+
+@media (max-width: 768px) {
+    /* Mantenemos el orden Flex estándar, pero ajustamos padding */
+    .hero-minimal { 
+        flex-direction: column; /* Estándar: Imagen arriba, texto abajo */
+        padding: 100px 5% 40px 5%; /* Padding superior para el logo */
+        min-height: auto; 
+        gap: 30px; 
+    }
+
+    /* La Imagen del Brownie con Aros (Arriba del título en Móvil) */
+    .product-display { 
+        height: 380px; 
+        width: 100%;
+        order: -1; /* Forzamos que vaya PRIMERO */
+        margin-top: 30px;
+    }
+
+    .decorative-rings { transform: scale(0.65); } /* Escalamos los aros para móvil */
+    .ring-dashed-2 { display: none; } /* Quitamos el aro más grande */
+    .circle-bg { width: 260px; height: 260px; }
+    .hero-img { width: 160px; }
+
+    /* El Texto (Debajo de la Imagen en Móvil) */
+    .hero-text { 
+        width: 100%;
+        text-align: center; 
+    }
+    .hero-text h1 { font-size: 2.2rem; }
+    .hero-text p { margin: 0 auto; font-size: 1rem; }
+
+    /* Beneficios en Móvil: Mantenemos HORIZONTAL (o Grid si no caben) */
+    .hero-benefits { 
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Grid de 3 columnas para horizontal */
+        gap: 15px; 
+        margin-top: 30px;
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .benefit-item { padding: 0 5px; }
+    .benefit-item h4 { font-size: 0.75rem; }
+    .benefit-item p { font-size: 0.7rem; }
+
+    /* Botón en Móvil */
+    .btn-pedir-ahora { margin-top: 40px; width: 100%; max-width: 300px; padding: 15px 30px; font-size: 1rem; }
+
+    /* Franja Filosofía en Móvil */
+    .philosophy { padding: 60px 8%; }
+    .philosophy h2 { font-size: 1.8rem; }
+}
