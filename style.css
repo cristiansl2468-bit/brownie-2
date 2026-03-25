@@ -1,12 +1,12 @@
 /* ==========================================================
-   1. VARIABLES Y BASES (Actualizado con tu Burgundy)
+   1. VARIABLES Y BASES
 ========================================================== */
 :root {
     --bg-color: #F9F7F2;
-    --accent-color: #8b0a1a; /* Tu Burgundy oficial */
+    --accent-color: #8b0a1a;
     --text-main: #2C2C2C;
     --text-light: #6B6B6B;
-    --gold-brown: #8B5E3C; /* Café artesanal para botones/iconos */
+    --gold-brown: #8B5E3C;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,7 +36,6 @@ body {
     letter-spacing: 4px; 
     font-size: 2rem; 
     color: var(--text-main);
-    text-decoration: none;
 }
 
 .nav-cta a { 
@@ -48,153 +47,38 @@ body {
 }
 
 /* ==========================================================
-   3. HERO (PC) - CON ANILLOS DECORATIVOS
+   3. HERO (ESTILOS BASE / PC)
 ========================================================== */
-.hero-minimal {
-    min-height: 100vh; /* Que ocupe toda la pantalla de alto */
-    display: flex;
-    align-items: center; /* Centrado vertical */
-    justify-content: space-between; /* Texto a la izq, brownie a la der */
-    padding: 0 10%; /* Espacio a los lados en PC */
-    position: relative;
-    overflow: hidden; /* Evita que los aros se salgan de la pantalla */
-}
-
-/* Solución al choque: Damos más espacio al texto */
-.hero-text {
-    flex: 1.3; /* Aumentamos el espacio para el texto */
-    position: relative;
-    z-index: 10; /* Texto siempre arriba de los aros de fondo */
-    max-width: 680px; /* Evita que las líneas se hagan eternas */
-    margin-right: 0; /* Aseguramos que no haya margen extra que choque */
-}
-
-.hero-text h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 6vw, 4.5rem); /* Tamaño de letra que se adapta */
-    line-height: 1.1;
-    margin-bottom: 20px;
-}
-
-/* Ajustamos la imagen para que no tape */
-.product-display {
-    flex: 0.7; /* Reducimos un poco el espacio para la imagen */
-    display: grid;
-    place-items: center;
-    position: relative;
-    height: 600px;
-}
-
-/* El Círculo de fondo sólido */
-.circle-bg {
-    grid-area: 1 / 1;
-    width: 380px;
-    height: 380px;
-    background: #EFEBE3;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-/* Tu imagen del Brownie real (sin fondo blanco) */
-.hero-img {
-    grid-area: 1 / 1;
-    width: 280px; /* Ajusta este tamaño al de tu foto de brownie */
-    position: relative;
-    z-index: 2; /* Arriba del círculo */
-    filter: drop-shadow(0 40px 60px rgba(0,0,0,0.12));
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-/* ==========================================================
-   4. ICONOS DE BENEFICIOS Y BOTÓN
-========================================================== */
-.hero-benefits { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 15px; 
-    margin-top: 30px; 
-}
-.benefit-item { text-align: center; }
-.benefit-item .icon { font-size: 1.8rem; display: block; margin-bottom: 5px; }
-.benefit-item h4 { font-size: 0.8rem; text-transform: uppercase; color: var(--gold-brown); letter-spacing: 1px; }
-.benefit-item p { font-size: 0.75rem; color: var(--text-light); }
-
-.btn-pedir-ahora { 
-    display: inline-block; 
-    margin-top: 40px; 
-    padding: 18px 50px; 
-    background: var(--gold-brown); 
-    color: white; 
-    text-decoration: none; 
-    border-radius: 50px; 
-    font-weight: 700; 
-    letter-spacing: 1px;
-    box-shadow: 0 10px 20px rgba(139, 94, 60, 0.2);
-    transition: 0.3s;
-}
-.btn-pedir-ahora:hover { transform: translateY(-3px); filter: brightness(1.1); }
-
-/* ==========================================================
-   5. FILOSOFÍA, DESCRIPCIÓN Y VISOR (TUS ESTILOS ORIGINALES)
-========================================================== */
-.philosophy {
-    padding: 100px 5%;
-    background-color: #FDF5E6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-}
-
-.philosophy h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.8rem); max-width: 900px; margin: 0 auto 20px; line-height: 1.2; }
-
-.product-description-area { padding: 100px 10%; background-color: #fff; }
-.desc-body { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1100px; margin: 0 auto; }
-
-.product-viewer { padding: 80px 10%; text-align: center; }
-.main-window { width: 100%; max-width: 700px; height: 450px; margin: 0 auto 30px; background-color: #fff; display: flex; justify-content: center; align-items: center; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-.main-window img { max-width: 85%; max-height: 85%; object-fit: contain; }
-
-.thumbnail-carousel { display: flex; justify-content: center; gap: 15px; }
-.thumb { width: 80px; height: 80px; cursor: pointer; border-radius: 10px; opacity: 0.5; transition: 0.3s; border: 2px solid transparent; }
-.thumb.active { opacity: 1; border-color: var(--accent-color); }
-
-/* ==========================================================
-   6. RESPONSIVE (CELULAR ACTUALIZADO)
-========================================================== */
-@media (max-width: 768px) {
-    .hero-minimal { flex-direction: column-reverse; padding: 120px 5% 40px 5%; min-height: auto; gap: 40px; }
-    .hero-text h1 { font-size: 2.2rem; text-align: center; }
-    .hero-benefits { grid-template-columns: 1fr; gap: 25px; }
-    .product-display { height: 350px; }
-    .ring-2 { display: none; } /* Simplificamos para cel */
-    .circle-bg { width: 280px; height: 280px; }
-    .hero-img { width: 170px; }
-    .desc-body { grid-template-columns: 1fr; gap: 40px; }
-    .philosophy { padding: 80px 8%; }
-}
-/* ==========================================================
-   --- ESTILOS DEL HERO ACTUALIZADOS CON AROS Y BENEFICIOS ---
-========================================================== */
-
 .hero-minimal {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10%;
+    position: relative;
     max-width: 1400px;
     margin: 0 auto;
-    gap: 40px;
+    gap: 50px; /* Separación para que no choque el brownie con las letras */
 }
 
-/* --- Los Aros Decorativos (PC) --- */
+.hero-text {
+    flex: 1.2;
+    z-index: 10;
+}
+
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
 .product-display {
     flex: 0.8;
     display: grid;
@@ -203,51 +87,14 @@ body {
     height: 600px;
 }
 
-.decorative-rings {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-items: center;
+/* Aro decorativo artesanal */
+.decorative-ring-img {
+    grid-area: 1 / 1;
+    width: 600px;
+    height: auto;
     z-index: 0;
-}
-
-.ring {
-    position: absolute;
-    border-radius: 50%;
-    border-color: rgba(139, 94, 60, 0.2); /* Color café artesanal suave */
-}
-
-/* Aro Principal con Textura de Hojas (Usaremos un pseudo-elemento para la textura) */
-.ring-main {
-    width: 450px;
-    height: 450px;
-    border: 2px solid;
-    position: relative;
-}
-
-/* Aquí simularíamos la textura orgánica. Lo ideal sería una imagen PNG, 
-   pero usaremos un truco de CSS para simular puntos orgánicos. */
-.ring-texture {
-    position: absolute;
-    top: -5px; left: -5px; right: -5px; bottom: -5px;
-    border-radius: 50%;
-    background-image: radial-gradient(rgba(139, 94, 60, 0.1) 1px, transparent 1px);
-    background-size: 15px 15px;
-    mask-image: radial-gradient(circle, transparent 50%, black 51%);
-}
-
-/* Los aros con líneas cortadas (dashed) */
-.ring-dashed-1 {
-    width: 530px;
-    height: 530px;
-    border: 1px dashed;
-}
-
-.ring-dashed-2 {
-    width: 620px;
-    height: 620px;
-    border: 1px dashed;
+    opacity: 0.8;
+    pointer-events: none;
 }
 
 .circle-bg {
@@ -262,143 +109,94 @@ body {
 .hero-img {
     grid-area: 1 / 1;
     width: 280px;
+    z-index: 2;
     filter: drop-shadow(0 40px 60px rgba(0,0,0,0.12));
     animation: float 6s ease-in-out infinite;
-    z-index: 2;
 }
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50= transform: translateY(-20px); }
+    50% { transform: translateY(-20px); }
 }
 
-/* --- Texto, Beneficios y Botón --- */
-.hero-text { flex: 1.2; z-index: 10; }
-.hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; }
-.hero-text p { font-size: 1.1rem; color: var(--text-light); line-height: 1.7; max-width: 600px; }
-
-/* Beneficios en HORIZONTAL (Tal como en tu referencia) */
+/* ==========================================================
+   4. BENEFICIOS Y BOTONES
+========================================================== */
 .hero-benefits { 
-    display: flex; /* Cambiamos a Flex para horizontal */
-    justify-content: space-between;
+    display: flex;
     gap: 20px; 
-    margin-top: 40px; 
-    max-width: 600px;
+    margin-top: 30px; 
 }
 .benefit-item { text-align: center; flex: 1; }
-.benefit-icon { width: 50px; height: 50px; object-fit: contain; margin-bottom: 10px; } /* Si usas imágenes */
-.benefit-item .icon { font-size: 2rem; display: block; margin-bottom: 10px; } /* Si usas emojis */
-.benefit-item h4 { font-size: 0.9rem; text-transform: uppercase; color: var(--gold-brown); letter-spacing: 1px; font-weight: 700; }
-.benefit-item p { font-size: 0.8rem; color: var(--text-light); line-height: 1.4; }
+.benefit-icon { width: 45px; height: 45px; object-fit: contain; margin-bottom: 10px; }
+.benefit-item h4 { font-size: 0.85rem; text-transform: uppercase; color: var(--gold-brown); letter-spacing: 1px; }
+.benefit-item p { font-size: 0.75rem; color: var(--text-light); }
 
-/* Botón "PEDIR AHORA" Marrón */
 .btn-pedir-ahora { 
     display: inline-block; 
-    margin-top: 50px; 
-    padding: 18px 60px; 
+    margin-top: 40px; 
+    padding: 18px 50px; 
     background: var(--gold-brown); 
     color: white; 
     text-decoration: none; 
     border-radius: 50px; 
     font-weight: 700; 
-    letter-spacing: 2px;
-    box-shadow: 0 10px 20px rgba(139, 94, 60, 0.2);
     transition: 0.3s;
-    font-size: 1.1rem;
 }
-.btn-pedir-ahora:hover { transform: translateY(-3px); filter: brightness(1.1); }
+.btn-pedir-ahora:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(139, 94, 60, 0.2); }
 
-/* --- FRANJA RECUPERADA: 0% AZÚCARES (Tus estilos originales) --- */
+/* ==========================================================
+   5. FILOSOFÍA Y VISOR (LIMPIOS)
+========================================================== */
 .philosophy {
     padding: 100px 5%;
     background-color: #FDF5E6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     text-align: center;
-    width: 100%;
 }
-.philosophy .tag { display: block; margin-bottom: 15px; letter-spacing: 2px; color: var(--text-light); font-size: 0.9rem; }
-.philosophy h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.8rem); max-width: 900px; margin: 0 auto 20px; line-height: 1.2; }
-.philosophy p { max-width: 650px; margin: 0 auto; color: var(--text-light); line-height: 1.7; font-size: 1.1rem; }
+.philosophy h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 20px; }
+
+.product-description-area { padding: 100px 10%; background-color: #fff; }
+.desc-body { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto; }
+
+.product-viewer { padding: 80px 10%; text-align: center; }
+.main-window { width: 100%; max-width: 700px; height: 450px; margin: 0 auto 30px; background-color: #fff; display: flex; justify-content: center; align-items: center; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.main-window img { max-width: 85%; max-height: 85%; object-fit: contain; }
+
+.thumbnail-carousel { display: flex; justify-content: center; gap: 15px; }
+.thumb { width: 70px; height: 70px; cursor: pointer; border-radius: 10px; opacity: 0.5; transition: 0.3s; border: 2px solid transparent; }
+.thumb.active { opacity: 1; border-color: var(--accent-color); }
+
+.minimal-footer { padding: 40px; text-align: center; font-size: 0.9rem; color: var(--text-light); }
 
 /* ==========================================================
-   --- RESPONSIVE: AJUSTE CRÍTICO PARA MÓVIL (NUEVO ORDEN) ---
+   6. RESPONSIVE (SOLO CELULAR)
 ========================================================== */
-
 @media (max-width: 768px) {
-    /* Mantenemos el orden Flex estándar, pero ajustamos padding */
     .hero-minimal { 
-        flex-direction: column; /* Estándar: Imagen arriba, texto abajo */
-        padding: 100px 5% 40px 5%; /* Padding superior para el logo */
-        min-height: auto; 
-        gap: 30px; 
-    }
-
-    /* La Imagen del Brownie con Aros (Arriba del título en Móvil) */
-    .product-display { 
-        height: 380px; 
-        width: 100%;
-        order: -1; /* Forzamos que vaya PRIMERO */
-        margin-top: 30px;
-    }
-
-    .decorative-rings { transform: scale(0.65); } /* Escalamos los aros para móvil */
-    .ring-dashed-2 { display: none; } /* Quitamos el aro más grande */
-    .circle-bg { width: 260px; height: 260px; }
-    .hero-img { width: 160px; }
-
-    /* El Texto (Debajo de la Imagen en Móvil) */
-    .hero-text { 
-        width: 100%;
-        text-align: center; 
-    }
-    .hero-text h1 { font-size: 2.2rem; }
-    .hero-text p { margin: 0 auto; font-size: 1rem; }
-
-    /* Beneficios en Móvil: Mantenemos HORIZONTAL (o Grid si no caben) */
-    .hero-benefits { 
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Grid de 3 columnas para horizontal */
-        gap: 15px; 
-        margin-top: 30px;
+        flex-direction: column; 
+        padding: 120px 5% 60px 5%; 
+        gap: 30px;
         text-align: center;
-        max-width: 100%;
     }
+
+    .product-display { 
+        order: -1; /* Brownie arriba en móvil */
+        height: 320px; 
+        width: 100%;
+    }
+
+    .decorative-ring-img { width: 350px; }
+    .circle-bg { width: 250px; height: 250px; }
+    .hero-img { width: 170px; }
+
+    .hero-text h1 { font-size: 2.2rem; }
+    .hero-benefits { 
+        display: grid; 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 10px; 
+    }
+    .benefit-item h4 { font-size: 0.7rem; }
+    .benefit-item p { display: none; } /* Ocultamos descripción corta en móvil para no saturar */
     
-    .benefit-item { padding: 0 5px; }
-    .benefit-item h4 { font-size: 0.75rem; }
-    .benefit-item p { font-size: 0.7rem; }
-
-    /* Botón en Móvil */
-    .btn-pedir-ahora { margin-top: 40px; width: 100%; max-width: 300px; padding: 15px 30px; font-size: 1rem; }
-
-    /* Franja Filosofía en Móvil */
-    .philosophy { padding: 60px 8%; }
-    .philosophy h2 { font-size: 1.8rem; }
-}
-@media (max-width: 768px) {
-    /* Mismo orden: Brownie -> Título -> Iconos (TUS ESTILOS ORIGINALES) */
-    
-    .product-display {
-        height: 350px; /* Alto en móvil */
-        margin-bottom: 20px;
-        order: -1; /* Forzamos que vaya PRIMERO */
-    }
-
-    /* Escalamos el Aro en móvil */
-    .decorative-ring-img {
-        width: 380px; /* Tamaño en móvil */
-        opacity: 0.6; /* Más tenue en móvil */
-    }
-
-    .circle-bg {
-        width: 250px;
-        height: 250px;
-    }
-
-    .hero-img {
-        width: 170px;
-    }
+    .desc-body { grid-template-columns: 1fr; }
 }
