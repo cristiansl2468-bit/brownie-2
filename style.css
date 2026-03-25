@@ -69,23 +69,8 @@ body {
     display: grid;
     place-items: center;
     position: relative;
-    height: 600px;
+    height: 600px; /* Alto en PC */
 }
-
-/* Anillos estilo artesanal */
-.decorative-rings {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-items: center;
-    z-index: 0;
-}
-
-.ring { position: absolute; border: 1px solid rgba(139, 94, 60, 0.15); border-radius: 50%; }
-.ring-1 { width: 450px; height: 450px; border-style: dashed; }
-.ring-2 { width: 580px; height: 580px; }
-
 .circle-bg {
     grid-area: 1 / 1;
     width: 380px;
@@ -95,19 +80,33 @@ body {
     z-index: 1;
 }
 
+/* --- LA NUEVA IMAGEN DEL ARO (Imagen 6) --- */
+.decorative-ring-img {
+    grid-area: 1 / 1;
+    width: 650px; /* Tamaño del aro en PC */
+    height: auto;
+    position: absolute;
+    z-index: 0; /* Por detrás del fondo sólido y la imagen */
+    opacity: 0.8; /* Lo hacemos sutil y tenue */
+    pointer-events: none; /* No interfiere con el texto */
+    
+    /* TRUCO: Gira la imagen 90 grados para que los 
+       corchetes queden arriba y abajo del brownie cuadrado */
+    transform: rotate(90deg);
+}
+
 .hero-img {
     grid-area: 1 / 1;
-    width: 280px;
+    width: 320px; /* Tamaño del brownie en PC */
     filter: drop-shadow(0 40px 60px rgba(0,0,0,0.12));
     animation: float 6s ease-in-out infinite;
-    z-index: 2;
+    z-index: 2; /* Por delante de todo */
 }
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
 }
-
 /* ==========================================================
    4. ICONOS DE BENEFICIOS Y BOTÓN
 ========================================================== */
@@ -376,4 +375,28 @@ body {
     /* Franja Filosofía en Móvil */
     .philosophy { padding: 60px 8%; }
     .philosophy h2 { font-size: 1.8rem; }
+}
+@media (max-width: 768px) {
+    /* Mismo orden: Brownie -> Título -> Iconos (TUS ESTILOS ORIGINALES) */
+    
+    .product-display {
+        height: 350px; /* Alto en móvil */
+        margin-bottom: 20px;
+        order: -1; /* Forzamos que vaya PRIMERO */
+    }
+
+    /* Escalamos el Aro en móvil */
+    .decorative-ring-img {
+        width: 380px; /* Tamaño en móvil */
+        opacity: 0.6; /* Más tenue en móvil */
+    }
+
+    .circle-bg {
+        width: 250px;
+        height: 250px;
+    }
+
+    .hero-img {
+        width: 170px;
+    }
 }
