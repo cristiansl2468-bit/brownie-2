@@ -9,7 +9,7 @@ document.addEventListener('submit', function(e) {
         const nombre = document.getElementById('nombre').value;
         const cantidad = document.getElementById('cantidad').value;
         const direccion = document.getElementById('direccion').value;
-        const miTelefono = "524412123434"; 
+        const miTelefono = "52 56 6918 8409"; 
         const mensaje = `*NUEVO PEDIDO KUKULCAO* 🟤%0A%0A` +
                         `*Nombre:* ${nombre}%0A` +
                         `*Pedido:* ${cantidad}%0A` +
