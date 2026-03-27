@@ -107,7 +107,7 @@ body {
     animation: floatOriginal 6s ease-in-out infinite;
     
     position: relative; 
-    left: -7px; /* <--- Cambia este número: más negativo lo mueve a la izquierda */
+    left: -5px; /* <--- Cambia este número: más negativo lo mueve a la izquierda */
 }
 
 
